@@ -133,10 +133,12 @@ body {
 }
 
 .nav-links a {
+    font-family: "WDXL Lubrifont TC", sans-serif;
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
     transition: color 0.3s ease;
+    
 }
 
 .nav-links a:hover {
@@ -150,7 +152,7 @@ body {
     display: flex;
     align-items: left;
     justify-content: left;
-    background-color: #333;
+    background-color: #ec7d7d;
 }
 
 .section-content {
@@ -397,9 +399,16 @@ body {
 
         .nav-links {
             display: flex;
-            justify-content: center;
+            justify-content: right;
             gap: 3rem;
             list-style: none;
+            font family: "WDXL Lubrifont TC", sans-serif;
+            font-weight: 400;
+        }
+        .wdxl-lubrifont-tc-regular {
+        font-family: "WDXL Lubrifont TC", sans-serif;
+        font-weight: 400;
+        font-style: normal;
         }
 
         .nav-links a {
@@ -432,7 +441,7 @@ body {
         /* Home Section */
         .home-section {
             background: linear-gradient(rgba(0,0,0,0.9), rgba(20, 20, 20, 0.9)),
-                        url('img/home-bg.jpg') center/cover;
+                        url('img/bannernomaru1.jpg') center/cover;
             text-align: center;
         }
 
@@ -473,8 +482,8 @@ body {
 
         .project-image {
             flex: 1;
-            max-width:10px; 
-            border-radius:600px;
+            max-width: 600px;
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
