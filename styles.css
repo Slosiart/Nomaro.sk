@@ -80,7 +80,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: rgb(0, 0, 0);
     transition: opacity 1s ease;
     z-index: 2;
 }
@@ -116,8 +116,10 @@ body {
 
 /* Navigation */
 .navbar {
-    background:linear-gradient(rgba(0,0,0,0.5), rgba(177, 0, 0, 0.5)),
-                url('img/navimg.jpg') center/cover;
+    background: linear-gradient(
+        rgba(0,0,0,0.8), rgba(0, 0, 0, 0.8)
+    )
+                
     padding: 1.5rem;
     position: sticky;
     top: 0;
@@ -142,7 +144,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #b92929;
+    color: #323232;
 }
 
 /* Content Sections */
@@ -152,7 +154,7 @@ body {
     display: flex;
     align-items: left;
     justify-content: left;
-    background-color: #ec7d7d;
+    background-color: #ffffff;
 }
 
 .section-content {
@@ -256,7 +258,7 @@ body {
 }
 
 .footer-column a:hover {
-    color: #b92929;
+    color: #000000;
 }
 
 /* Responsive Design */
@@ -289,7 +291,7 @@ body {
 .explore-btn {
     padding: 15px 40px;
     font-size: 1.1rem;
-    background: #b92929;
+    background: #ffffff;
     border: none;
     color: white;
     border-radius: 30px;
@@ -299,7 +301,7 @@ body {
 }
 
 .explore-btn:hover {
-    background: #991f1f;
+    background: #000000;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
@@ -420,7 +422,7 @@ body {
         }
 
         .nav-links a:hover {
-            color: #b92929;
+            color: #000000;
         }
 
         /* Content Sections */
@@ -466,7 +468,7 @@ body {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #b92929;
+            color: #000000;
         }
 
         .project-item {
@@ -508,7 +510,7 @@ body {
         .project-info h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #b92929;
+            color: #ffffff;
         }
 
         .project-info p {
@@ -533,7 +535,7 @@ body {
         }
 
         .tech-stack span:hover {
-            background: #b92929;
+            background: #ffffff;
             transform: translateY(-3px);
         }
 
@@ -583,7 +585,7 @@ body {
 
         .contact-detail i {
             font-size: 1.5rem;
-            color: #b92929;
+            color: #ffffff;
             margin-right: 1rem;
             width: 40px;
         }
@@ -641,7 +643,7 @@ body {
         }
 
         .submit-btn:hover {
-            background: #991f1f;
+            background: #ffffff;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
@@ -679,7 +681,7 @@ body {
 
         .footer-column i {
             margin-right: 10px;
-            color: #b92929;
+            color: #ffffff;
         }
 
         .footer-column a {
@@ -691,7 +693,7 @@ body {
         }
 
         .footer-column a:hover {
-            color: #b92929;
+            color: #000000;
         }
 
         .social-links {
@@ -714,7 +716,7 @@ body {
         }
 
         .social-links a:hover {
-            background: #b92929;
+            background: #ffffff;
             transform: translateY(-5px);
         }
 
@@ -785,7 +787,7 @@ body {
         .explore-btn {
             padding: 15px 40px;
             font-size: 1.1rem;
-            background: #b92929;
+            background: #ffffff;
             border: none;
             color: white;
             border-radius: 30px;
