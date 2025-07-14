@@ -1,236 +1,228 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nomaro</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symmetric Glass Sections</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Landing Page -->
-    <section class="landing-page">
-        <div class="landing-content">
-            <h1>nomaro studio</h1>
-            <p>Digitálna reklamná agentúra</p>
-            <button class="explore-btn" onclick="showMainContent()">Začni s nami</button>
-        </div>
+
+  <canvas id="sequenceCanvas"></canvas>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#projects">Projects</a>
+    <a href="#placeholder1">Placeholder 1</a>
+    <a href="#placeholder2">Placeholder 2</a>
+  </nav>
+
+   <div class="landing-space">
+    <h1>Nomaro</h1>
+    <h2>Naša práca je hotová až keď ste s ňou vy spokojný!</h2>
+    <p>Nebojíme sa nových a odvážnych dizajnov. Premeníme vaše nápady na pútavé vizuály s dôrazom na kvalitu a individuálny prístup ponúkame kompletnú paletu služieb. Záleží nám na vás a vašich názoroch.</p>
+  </div>
+
+  <div class="sections-container">
+    <!-- NEW: Three-column container -->
+    <div class="three-column-container">
+      <div class="column-section" id="home">
+        <h2>Vitajte</h2>
+        <p>Welcome to our immersive landing page. Scroll down to explore our team, projects, and creative process.</p>
+      </div>
+
+      <!-- Middle column (empty) -->
+      <div class="column-section" style="background: transparent; box-shadow: none; border: none; backdrop-filter: none;"></div>
+
+      <div class="column-section" id="about">
+        <h2>O nás</h2>
+        <p>Vaša spokojnosť je naším najväčším úspechom. Sme pár tak ako aj v Živote tak aj v práci. Kombinácia našeho kreatívneho premýšľania s originálnym dizajnom a dôkladnou analízou získate viac než len vizuály – získate nové a odvážne dizajny</p>
+      </div>
+    </div>
+
+    <section id="projects">
+      <h2>Ponúkané služby</h2>
+
+      <div class="project-card">
+        <p><strong>Web design</strong><br>Vytvoríme moderné a funkčné webové stránky, ktoré oslovia vašich zákazníkov.</p>
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web design">
+      </div>
+      <div class="divider"></div>
+
+      <div class="project-card reverse">
+        <p><strong>Grafický dizajn</strong><br>Tvoríme vizuálne identity, logá, brožúry a ďalšie marketingové materiály.</p>
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Grafický dizajn">
+      </div>
+      <div class="divider"></div>
+
+      <div class="project-card">
+        <p><strong>Marketingové stratégie</strong><br>Vytvoríme efektívny marketingový plán na zvýšenie vašej online prítomnosti.</p>
+        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marketing">
+      </div>
+      <div class="divider"></div>
+
+      <div class="project-card reverse">
+        <p><strong>Branding</strong><br>Vybudujeme silnú značku, ktorá vás odlíši od konkurencie.</p>
+        <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Branding">
+      </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#home">Domov</a></li>
-                <li><a href="#projects">Služby</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-                <li><a href="Aboutus.html">O nás</a></li>
-            </ul>
-        </nav>
+    <section id="placeholder1">
+      <h2>Placeholder 1</h2>
+      <p>Space for future content such as news, features or team highlights — all neatly framed in glass.</p>
+    </section>
 
-        <!-- Home Section -->
-        <section id="home" class="content-section home-section">
-            <div class="section-content">
-                <h2>Tvorivé riešenia</h2>
-                <p>Premieňame vaše nápady na digitálne zážitky. Sme digitálna agentúra špecializujúca sa na moderné webové riešenia, aplikácie a online marketing.</p>
-            </div>
-        </section>
+    <section id="placeholder2">
+      <h2>Placeholder 2</h2>
+      <p>Flexible space for extra content — announcements, contacts or custom widgets.</p>
+    </section>
+  </div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="content-section projects-section">
-            <div class="section-content">
-                <h2>Poskytované služby</h2>
+  <div class="scroll-indicator">
+    <div class="indicator-item" data-target="#home">
+      <div class="scroll-dot"></div> Home
+    </div>
+    <div class="indicator-item" data-target="#about">
+      <div class="scroll-dot"></div> About
+    </div>
+    <div class="indicator-item" data-target="#projects">
+      <div class="scroll-dot"></div> Projects
+    </div>
+    <div class="indicator-item" data-target="#placeholder1">
+      <div class="scroll-dot"></div> Placeholder 1
+    </div>
+    <div class="indicator-item" data-target="#placeholder2">
+      <div class="scroll-dot"></div> Placeholder 2
+    </div>
+  </div>
+  
+  <footer>
+    <p>© 2023 Creative Studio. All rights reserved.</p>
+  </footer>
+  
+  <div class="info-banner">
+    Aspect ratio preserved: Background images won't stretch
+  </div>
 
-                <!-- Project 1 -->
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Web Design Project">
-                    </div>
-                    <div class="project-info">
-                        <h3>Webový dizajn & vývoj</h3>
-                        <p>Moderné responzívne webové stránky s interaktívnymi prvkami a plynulými animáciami. Naše riešenia sú optimalizované pre rýchlosť a vyhľadávače.</p>
-                        <div class="tech-stack">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>MySQL</span>
-                            <span>PHP</span>
-                        </div>
-                    </div>
-                </div>
+  <script>
+    const canvas = document.getElementById('sequenceCanvas');
+    const context = canvas.getContext('2d');
+    const frameCount = 59;
+    const currentFrame = index => `${String(index).padStart(4, '0')}.png`;
 
-                <!-- Project 2 (Reversed) -->
-                <div class="project-item reverse">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Mobile App Project">
-                    </div>
-                    <div class="project-info">
-                        <h3>Mobilné aplikácie</h3>
-                        <p>Krospremiestniteľné aplikácie s cloudovou synchronizáciou. Vytvárame riešenia pre iOS a Android s dôrazom na užívateľský zážitok.</p>
-                        <div class="tech-stack">
-                            <span>React Native</span>
-                            <span>Firebase</span>
-                            <span>Redux</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Marketing Project">
-                    </div>
-                    <div class="project-info">
-                        <h3>Online marketing</h3>
-                        <p>Kompletné marketingové stratégie pre váš online biznis. Špecializujeme sa na SEO, PPC reklamu, sociálne médiá a obsahový marketing.</p>
-                        <div class="tech-stack">
-                            <span>SEO</span>
-                            <span>PPC</span>
-                            <span>SMM</span>
-                            <span>Analytika</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    const images = [];
+    let loadedImages = 0;
+    let imgAspectRatio = 16/9; // Default aspect ratio
 
-        <!-- Contact Section -->
-        <section id="contact" class="content-section contact-section">
-            <div class="section-content">
-                <h2>Kontaktujte nás</h2>
-                <p>Pripravíme pre vás na mieru šité digitálne riešenie</p>
-                
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Naše kontakty</h3>
-                        <div class="contact-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Adresa</h4>
-                                <p>Severná 18, 97401 Banská Bystrica</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
-                                <h4>Telefón</h4>
-                                <p>+421 905 123 456</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>nomaro.online@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Pracovné hodiny</h4>
-                                <p>Pondelok - Nedeľa: 8:00 - 19:00</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <h3>Napíšte nám</h3>
-                        <form action="https://formspree.io/f/xjvqnyan" method="POST">
-                            <div class="form-group">
-                                <label for="name">Meno a priezvisko</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Predmet</label>
-                                <input type="text" id="subject" name="subject" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Správa</label>
-                                <textarea id="message" name="message" class="form-control" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Odoslať správu</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+    function preloadImages() {
+      for (let i = 1; i <= frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        images[i - 1] = img;
+        img.onload = () => {
+          loadedImages++;
+          // Get aspect ratio from the first image
+          if (loadedImages === 1) {
+            imgAspectRatio = img.width / img.height;
+            drawFrame(0);
+          }
+        };
+      }
+    }
 
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="section-content">
-                <div class="footer-container">
-                    <div class="footer-column">
-                        <h4>Nomaro</h4>
-                        <p>Digitálna reklamná agentúra poskytujúca špičkové webové riešenia, mobilné aplikácie a online marketing pre moderné podnikanie.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Rýchle odkazy</h4>
-                        <a href="#home">Domov</a>
-                        <a href="#projects">Služby</a>
-                        <a href="#contact">Kontakt</a>
-                        <a href="Aboutus.html">O nás</a>
-                        
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h4>Kontaktné informácie</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> Severná Ulica 18, Banská Bystrica</p>
-                       
-                        <p><i class="fas fa-phone-alt"></i> +421 944 927 793</p> <p><i class="fas fa-phone-alt"></i> +421 904 674 480</p>
-                        <p><i class="fas fa-envelope"></i> nomaro.online@gmail.com</p>
-                        <p><i class="fas fa-clock"></i> Po-Pi: 8:00 - 17:00</p>
-                    </div>
-                </div>
-                
-                <div class="copyright">
-                    <p>&copy; 2023 Nomaro. Všetky práva vyhradené.</p>
-                </div>
-            </div>
-        </footer>
-    </main>
-
-    <script>
-        function showMainContent() {
-            const landing = document.querySelector('.landing-page');
-            const mainContent = document.querySelector('.main-content');
-            
-            landing.classList.add('hidden');
-            mainContent.classList.add('visible');
-            
-            setTimeout(() => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }, 500);
+    function drawFrame(index) {
+      const img = images[index];
+      if (img && img.complete) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Calculate dimensions to preserve aspect ratio
+        const canvasAspect = canvas.width / canvas.height;
+        let renderWidth, renderHeight, x, y;
+        
+        if (imgAspectRatio > canvasAspect) {
+          // Image is wider than canvas - fit to width
+          renderWidth = canvas.width;
+          renderHeight = canvas.width / imgAspectRatio;
+          x = 0;
+          y = (canvas.height - renderHeight) / 2;
+        } else {
+          // Image is taller than canvas - fit to height
+          renderHeight = canvas.height;
+          renderWidth = canvas.height * imgAspectRatio;
+          x = (canvas.width - renderWidth) / 2;
+          y = 0;
         }
+        
+        context.drawImage(img, x, y, renderWidth, renderHeight);
+      }
+    }
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    function getScrollFraction() {
+      const scrollTop = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      return scrollTop / maxScroll;
+    }
+
+    function updateFrame() {
+      const fraction = getScrollFraction();
+      const frameIndex = Math.min(frameCount - 1, Math.floor(fraction * frameCount));
+      drawFrame(frameIndex);
+    }
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      updateFrame();
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('scroll', () => {
+      updateFrame();
+      updateScrollIndicator();
+    });
+    window.addEventListener('load', () => {
+      resizeCanvas();
+      preloadImages();
+      updateFrame();
+      updateScrollIndicator();
+      
+      // Hide info banner after 5 seconds
+      setTimeout(() => {
+        document.querySelector('.info-banner').style.opacity = '0';
+        setTimeout(() => {
+          document.querySelector('.info-banner').style.display = 'none';
+        }, 1000);
+      }, 5000);
+    });
+
+    function updateScrollIndicator() {
+      const items = document.querySelectorAll('.indicator-item');
+      const sections = ['#home', '#about', '#projects', '#placeholder1', '#placeholder2'];
+      let current = 0;
+      sections.forEach((id, index) => {
+        const section = document.querySelector(id);
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2) {
+          current = index;
+        }
+      });
+      items.forEach((item, index) => {
+        item.querySelector('.scroll-dot').classList.toggle('active', index === current);
+      });
+    }
+
+    document.querySelectorAll('.indicator-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const target = document.querySelector(item.dataset.target);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    document.getElementById('navHomeLink')?.addEventListener('click', function (e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+    
+  </script>>
 </body>
 </html>
