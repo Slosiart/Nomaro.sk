@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOMARO | SEO Optimalizácia - Zvýšenie Viditeľnosti vo Vyhľadávačoch</title>
+    <meta name="description" content="Profesionálna SEO optimalizácia pre vyššie pozície vo vyhľadávačoch. Zvýšte organický traffic a konverzie na vašej webovej stránke.">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Všetky CSS štýly ostávajú rovnaké ako v pôvodnom kóde */
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #f0f0f0;
+            --text-color: #000000;
+            --bg-color: #ffffff;
+        }
+
+        .dark-mode {
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
+            --accent-color: #1a1a1a;
+            --text-color: #ffffff;
+            --bg-color: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            cursor: pointer;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--primary-color);
+            color: var(--text-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 40px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .abstract-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid var(--primary-color);
+            transform: rotate(45deg);
+        }
+
+        .abstract-shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            transform: rotate(15deg);
+            top: 50px;
+            left: 50px;
+        }
+
+        .abstract-shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            transform: rotate(-15deg);
+            bottom: 50px;
+            right: 50px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* Page Content */
+        .page-content {
+            display: none;
+            padding-top: 100px;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin: 60px 0;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-color);
+            border: 1px solid var(--primary-color);
+            position: relative;
+        }
+
+        .carousel-content {
+            padding: 40px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .carousel-content h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .carousel-content p {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .carousel-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--primary-color);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .carousel-btn:before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid currentColor;
+            border-right: 2px solid currentColor;
+        }
+
+        .carousel-btn.prev:before {
+            transform: rotate(-135deg);
+            margin-right: -3px;
+        }
+
+        .carousel-btn.next:before {
+            transform: rotate(45deg);
+            margin-left: -3px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 40px;
+            border: 1px solid var(--primary-color);
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover:before {
+            left: 100%;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .service-price {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            font-weight: 300;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .process-steps:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--primary-color);
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .step-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .step-content p {
+            font-weight: 300;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            margin-top: 60px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            padding: 20px 0;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:after {
+            content: '+';
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        .faq-item.active .faq-question:after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 0 20px;
+            display: none;
+            font-weight: 300;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--primary-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info {
+            font-weight: 300;
+        }
+
+        .copyright {
+            text-align: center;
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                flex-direction: column;
+            }
+
+            .process-steps:before {
+                display: none;
+            }
+
+            .process-step {
+                margin-bottom: 40px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .carousel {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" id="homeLink">NOMARO</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Domov</a></li>
+                    </ul>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">DARK MODE</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEO Page -->
+    <div id="seo" class="page-content active">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>SEO Optimalizácia</h1>
+                        <p>Zvýšte viditeľnosť vášho webu vo vyhľadávačoch. Naša komplexná SEO stratégia vám pomôže získať vyššie pozície vo výsledkoch vyhľadávania a prilákať viac kvalitných návštevníkov.</p>
+                        <a href="#contact" class="btn">Kontaktujte nás</a>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="abstract-shape"></div>
+                        <div class="abstract-shape"></div>
+                        <div class="abstract-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Naše SEO úspechy</h2>
+                
+                <!-- Carousel -->
+                <div class="carousel">
+                    <div class="carousel-slides">
+                        <div class="carousel-slide">
+                            <div class="carousel-content">
+                                <h3>E-commerce projekt</h3>
+                                <p>Zvýšenie organického trafficu o 250% za 6 mesiacov pre online predajcu elektroniky. Pozície kľúčových kľúčových slov sa zlepšili z pozícií mimo TOP 100 na prvé strany výsledkov vyhľadávania.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="carousel-content">
+                                <h3>Lokálna SEO stratégia</h3>
+                                <p>Pre lokálnu službovú firmu sme dosiahli umiestnenie v Google 3-pack pre všetky hlavné služby v cieľovej lokalite, čo viedlo k 300% nárastu telefonátov z vyhľadávania.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div class="carousel-content">
+                                <h3>Medzinárodná expanzia</h3>
+                                <p>Pri príprave webu na expanziu do nových trhov sme optimalizovali obsah pre viac jazykových verzií, čo viedlo k získaniu pozícií v TOP 10 pre kľúčové výrazy v 5 rôznych jazykoch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-nav">
+                        <div class="carousel-btn prev"></div>
+                        <div class="carousel-btn next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">SEO Balíčky</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Základný SEO Balíček</h3>
+                        <div class="service-price">od 290€/mes.</div>
+                        <ul class="service-features">
+                            <li>Analýza kľúčových slov</li>
+                            <li>On-page optimalizácia</li>
+                            <li>Základná technická SEO analýza</li>
+                            <li>Mesačný reporting</li>
+                            <li>Optimalizácia meta tagov</li>
+                        </ul>
+                        <a href="#contact" class="btn">Vybrať</a>
+                    </div>
+                    <div class="service-card">
+                        <h3>Pokročilý SEO Balíček</h3>
+                        <div class="service-price">od 590€/mes.</div>
+                        <ul class="service-features">
+                            <li>Kompletná SEO audit</li>
+                            <li>Strategia linkbuildingu</li>
+                            <li>Pravidelný obsahový marketing</li>
+                            <li>Lokálna SEO optimalizácia</li>
+                            <li>Pokročilá analýza konkurencie</li>
+                            <li>Mesačné konzultácie</li>
+                        </ul>
+                        <a href="#contact" class="btn">Vybrať</a>
+                    </div>
+                    <div class="service-card">
+                        <h3>Kompletná SEO Agentúra</h3>
+                        <div class="service-price">od 990€/mes.</div>
+                        <ul class="service-features">
+                            <li>Kompletná SEO stratégia</li>
+                            <li>Dedikovaný account manager</li>
+                            <li>Pravidelný obsahový marketing</li>
+                            <li>Pokročilý linkbuilding</li>
+                            <li>Medzinárodná SEO</li>
+                            <li>Kompletná analytika a reporting</li>
+                            <li>24/7 technická podpora</li>
+                        </ul>
+                        <a href="#contact" class="btn">Vybrať</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Proces SEO optimalizácie</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Analýza a Audit</h3>
+                            <p>Dôkladná analýza vášho webu, konkurencie a kľúčových slov pre stanovenie optimálnej SEO stratégie.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Technická SEO</h3>
+                            <p>Optimalizácia technických aspektov webu - rýchlosť, indexovanie, štruktúra URL a mobilná priateľskosť.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>On-page Optimalizácia</h3>
+                            <p>Optimalizácia obsahu, meta tagov, nadpisov a interného linkovania pre lepšie pozície vo vyhľadávačoch.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Off-page Stratégia</h3>
+                            <p>Budovanie kvalitných backlinkov a online reputácie pre zvýšenie autority vášho webu.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Monitoring a Reporting</h3>
+                            <p>Pravidelné sledovanie výsledkov, úprava stratégie a podrobné reporty o pokrokoch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Často kladené otázky o SEO</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">Ako dlho trvá, kým uvidíme výsledky SEO?</div>
+                        <div class="faq-answer">
+                            <p>Väčšinou trvá 3-6 mesiacov, kým sa začnú prejavovať významnejšie výsledky SEO optimalizácie. Toto časové obdobie je potrebné pre indexovanie zmien vyhľadávačmi a získanie autority.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Je SEO jednorazová služba alebo potrebujem kontinuálnu podporu?</div>
+                        <div class="faq-answer">
+                            <p>SEO vyžaduje kontinuálnu prácu, pretože vyhľadávače neustále menia svoje algoritmy a konkurencia sa vyvíja. Pravidelná optimalizácia je kľúčom k udržaniu a zlepšovaniu pozícií.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Ako meriame úspešnosť SEO kampane?</div>
+                        <div class="faq-answer">
+                            <p>Úspešnosť meriame prostredníctvom kľúčových metrík ako organický traffic, pozície kľúčových slov, konverzná miera, čas strávený na stránke a míra okamžitého opustenia stránky.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Aký je rozdiel medzi lokálnym a celostátnym SEO?</div>
+                        <div class="faq-answer">
+                            <p>Lokálne SEO cieľi na zákazníkov v konkrétnej geografickej oblasti, zatiaľ čo celostátne SEO sa zameriava na celú krajinu. Stratégia sa líši v závislosti od vašich obchodných cieľov.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Môže SEO nahradiť PPC reklamu?</div>
+                        <div class="faq-answer">
+                            <p>SEO a PPC by mali byť súčasťou komplexnej digitálnej stratégie. SEO prináša dlhodobé výsledky s nižšími nákladmi, zatiaľ čo PPC poskytuje okamžité výsledky. Ideálne je kombinovať obe stratégie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">NOMARO</div>
+                    <div class="footer-info">
+                        <p>Maroš Slosiar NOMARO - ONLINE | IČO: 56986581</p>
+                        <p>Sídlo: 97401 Banská Bystrica, Severná 1408/18</p>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <p>Špecializujeme sa na SEO optimalizáciu, web dizajn a digitálny marketing pre rast vašej online prítomnosti.</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Nomaro Design Studio. Všetky práva vyhradené.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle theme functionality
+        const themeToggle = document.getElementById('themeToggle');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'LIGHT MODE';
+            } else {
+                themeToggle.textContent = 'DARK MODE';
+            }
+        });
+
+        // Page navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page-content');
+        const homeLink = document.getElementById('homeLink');
+        
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+        
+        homeLink.addEventListener('click', function() {
+            showPage('home');
+        });
+
+        // Carousel functionality
+        const carouselSlides = document.querySelector('.carousel-slides');
+        const carouselSlide = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        
+        if (carouselSlides) {
+            let currentSlide = 0;
+            const slideCount = carouselSlide.length;
+            
+            function goToSlide(slideIndex) {
+                if (slideIndex < 0) {
+                    currentSlide = slideCount - 1;
+                } else if (slideIndex >= slideCount) {
+                    currentSlide = 0;
+                } else {
+                    currentSlide = slideIndex;
+                }
+                
+                carouselSlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    goToSlide(currentSlide - 1);
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    goToSlide(currentSlide + 1);
+                });
+            }
+            
+            // Auto slide change every 5 seconds
+            setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        }
+
+        // FAQ functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links within the same page
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

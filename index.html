@@ -1,228 +1,893 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Symmetric Glass Sections</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOMARO | Kreatívne štúdio</title>
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #f0f0f0;
+            --text-color: #000000;
+            --bg-color: #ffffff;
+        }
+
+        .dark-mode {
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
+            --accent-color: #1a1a1a;
+            --text-color: #ffffff;
+            --bg-color: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            cursor: pointer;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--primary-color);
+            color: var(--text-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 40px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .abstract-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid var(--primary-color);
+            transform: rotate(45deg);
+        }
+
+        .abstract-shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            transform: rotate(15deg);
+            top: 50px;
+            left: 50px;
+        }
+
+        .abstract-shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            transform: rotate(-15deg);
+            bottom: 50px;
+            right: 50px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* Welcome Section */
+        .welcome-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .welcome-text {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .welcome-text p {
+            margin-bottom: 30px;
+        }
+
+        .vision-box {
+            padding: 40px;
+            background-color: var(--accent-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .vision-box h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-visual {
+            height: 300px;
+            background: var(--accent-color);
+            position: relative;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .service-card {
+            padding: 40px;
+            border: 1px solid var(--primary-color);
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover:before {
+            left: 100%;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        /* Team Section */
+        .team-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .team-member {
+            margin-bottom: 40px;
+        }
+
+        .member-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .member-initial {
+            width: 60px;
+            height: 60px;
+            border: 1px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+
+        .member-info h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .member-info p {
+            font-weight: 300;
+        }
+
+        .member-contact {
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--primary-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .contact-info {
+            font-weight: 300;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--primary-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info {
+            font-weight: 300;
+        }
+
+        .copyright {
+            text-align: center;
+            font-weight: 300;
+            font-size: 14px;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin: 60px 0;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent-color);
+            border: 1px solid var(--primary-color);
+            position: relative;
+        }
+
+        .carousel-content {
+            padding: 40px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .carousel-content h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .carousel-content p {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .carousel-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--primary-color);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .carousel-btn:before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid currentColor;
+            border-right: 2px solid currentColor;
+        }
+
+        .carousel-btn.prev:before {
+            transform: rotate(-135deg);
+            margin-right: -3px;
+        }
+
+        .carousel-btn.next:before {
+            transform: rotate(45deg);
+            margin-left: -3px;
+        }
+
+        /* Posts Section */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .post-card {
+            border: 1px solid var(--primary-color);
+            padding: 30px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .post-card:nth-child(2) {
+            grid-column: span 2;
+        }
+
+        .post-card:nth-child(3) {
+            grid-column: span 1;
+        }
+
+        .post-card:nth-child(4) {
+            grid-column: span 1;
+        }
+
+        .post-card:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        .post-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .post-card p {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .scroll-dot {
+            width: 10px;
+            height: 10px;
+            margin: 8px 0;
+            background-color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .scroll-dot.active {
+            background-color: var(--secondary-color);
+        }
+
+        /* Page Content */
+        .page-content {
+            display: none;
+            padding-top: 100px;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content,
+            .welcome-content,
+            .about-content,
+            .team-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-card:nth-child(2),
+            .post-card:nth-child(5) {
+                grid-column: span 1;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .carousel {
+                height: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">NOMARO</div>
+                <nav>
+                    <ul>
+                        <li><a href="#index.html">Domov</a></li>
+                        <li><a href="#about">O nás</a></li>
+                        <li><a href="#services">Služby</a></li>
+                        <li><a href="#team">Tím</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </nav>
+                <button class="theme-toggle" id="themeToggle">DARK MODE</button>
+            </div>
+        </div>
+    </header>
 
-  <canvas id="sequenceCanvas"></canvas>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#projects">Projects</a>
-    <a href="#placeholder1">Placeholder 1</a>
-    <a href="#placeholder2">Placeholder 2</a>
-  </nav>
-
-   <div class="landing-space">
-    <h1>Nomaro</h1>
-    <h2>Naša práca je hotová až keď ste s ňou vy spokojný!</h2>
-    <p>Nebojíme sa nových a odvážnych dizajnov. Premeníme vaše nápady na pútavé vizuály s dôrazom na kvalitu a individuálny prístup ponúkame kompletnú paletu služieb. Záleží nám na vás a vašich názoroch.</p>
-  </div>
-
-  <div class="sections-container">
-    <!-- NEW: Three-column container -->
-    <div class="three-column-container">
-      <div class="column-section" id="home">
-        <h2>Vitajte</h2>
-        <p>Welcome to our immersive landing page. Scroll down to explore our team, projects, and creative process.</p>
-      </div>
-
-      <!-- Middle column (empty) -->
-      <div class="column-section" style="background: transparent; box-shadow: none; border: none; backdrop-filter: none;"></div>
-
-      <div class="column-section" id="about">
-        <h2>O nás</h2>
-        <p>Vaša spokojnosť je naším najväčším úspechom. Sme pár tak ako aj v Živote tak aj v práci. Kombinácia našeho kreatívneho premýšľania s originálnym dizajnom a dôkladnou analízou získate viac než len vizuály – získate nové a odvážne dizajny</p>
-      </div>
-    </div>
-
-    <section id="projects">
-      <h2>Ponúkané služby</h2>
-
-      <div class="project-card">
-        <p><strong>Web design</strong><br>Vytvoríme moderné a funkčné webové stránky, ktoré oslovia vašich zákazníkov.</p>
-        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Web design">
-      </div>
-      <div class="divider"></div>
-
-      <div class="project-card reverse">
-        <p><strong>Grafický dizajn</strong><br>Tvoríme vizuálne identity, logá, brožúry a ďalšie marketingové materiály.</p>
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Grafický dizajn">
-      </div>
-      <div class="divider"></div>
-
-      <div class="project-card">
-        <p><strong>Marketingové stratégie</strong><br>Vytvoríme efektívny marketingový plán na zvýšenie vašej online prítomnosti.</p>
-        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marketing">
-      </div>
-      <div class="divider"></div>
-
-      <div class="project-card reverse">
-        <p><strong>Branding</strong><br>Vybudujeme silnú značku, ktorá vás odlíši od konkurencie.</p>
-        <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Branding">
-      </div>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>NOMARO</h1>
+                    <p>Naša práca je hotová až keď ste s ňou vy spokojný! Nebojíme sa nových a odvážnych dizajnov. Premeníme vaše nápady na pútavé vizuály s dôrazom na kvalitu a individuálny prístup. Ponúkame kompletnú paletu služieb.</p>
+                    <a href="#contact" class="btn">Začať spoluprácu</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="abstract-shape"></div>
+                    <div class="abstract-shape"></div>
+                    <div class="abstract-shape"></div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="placeholder1">
-      <h2>Placeholder 1</h2>
-      <p>Space for future content such as news, features or team highlights — all neatly framed in glass.</p>
+    <section id="welcome">
+        <div class="container">
+            <h2 class="section-title">Vitajte</h2>
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <p>Vitajte v našom kreatívnom štúdiu. Ponúkame špičkové riešenia v oblasti dizajnu a vývoja webových stránok. Sme pár, ktorý spája životnú a pracovnú energiu do jedinečného kreatívneho celku.</p>
+                    <p>Vaša spokojnosť je naším najväčším úspechom. Veríme, že kvalitný dizajn a funkčnosť idú ruka v ruke, a práve preto kladieme dôraz na obidve tieto aspekty.</p>
+                </div>
+                <div class="vision-box">
+                    <h3>Naša vízia</h3>
+                    <p>Vytvárať digitálne zážitky, ktoré spájajú inovácie s eleganciou, inšpirované harmóniou formy a funkcie.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="placeholder2">
-      <h2>Placeholder 2</h2>
-      <p>Flexible space for extra content — announcements, contacts or custom widgets.</p>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">O nás</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>V NOMARO veríme, že každý projekt je jedinečný a zaslúži si individuálny prístup. Sme kreatívne štúdio zamerané na poskytovanie komplexných riešení v oblasti web dizajnu, grafiky a marketingu.</p>
+                    <p>Našou prioritou je vytvárať nielen vizuálne pôsobivé, ale aj funkčné riešenia, ktoré pomáhajú našim klientom rásť a dosahovať svoje ciele.</p>
+                </div>
+                <div class="about-visual"></div>
+            </div>
+        </div>
     </section>
-  </div>
 
-  <div class="scroll-indicator">
-    <div class="indicator-item" data-target="#home">
-      <div class="scroll-dot"></div> Home
-    </div>
-    <div class="indicator-item" data-target="#about">
-      <div class="scroll-dot"></div> About
-    </div>
-    <div class="indicator-item" data-target="#projects">
-      <div class="scroll-dot"></div> Projects
-    </div>
-    <div class="indicator-item" data-target="#placeholder1">
-      <div class="scroll-dot"></div> Placeholder 1
-    </div>
-    <div class="indicator-item" data-target="#placeholder2">
-      <div class="scroll-dot"></div> Placeholder 2
-    </div>
-  </div>
-  
-  <footer>
-    <p>© 2023 Creative Studio. All rights reserved.</p>
-  </footer>
-  
-  <div class="info-banner">
-    Aspect ratio preserved: Background images won't stretch
-  </div>
+ <section id="services">
+            <div class="container">
+                <h2 class="section-title">Ponúkané služby</h2>
+                <div class="services-grid">
+                    <a href="Webdesign.html" class="service-card" style="cursor:pointer; text-decoration: none; color: inherit;">
+                        <div class="service-icon">W</div>
+                        <h3>Web design</h3>
+                        <p>Vytvoríme moderné a funkčné webové stránky, ktoré oslovia vašich zákazníkov a poskytnú im jedinečný zážitok. Dôraz kladieme na responzívny dizajn a intuitívne používateľské rozhranie.</p>
+                    </a>
+                    <a href="Grafický-design.html" class="service-card" style="cursor:pointer; text-decoration: none; color: inherit;">
+                        <div class="service-icon">G</div>
+                        <h3>Grafický dizajn</h3>
+                        
+                        <p>Tvoríme vizuálne identity, logá, brožúry a ďalšie marketingové materiály, ktoré reprezentujú vašu značku. Každý dizajn je výsledkom dôkladnej analýzy vašich potrieb a cieľov.</p>
+                    
+                    </a>
+                    <div class="service-card">
+                        <div class="service-icon">M</div>
+                        <h3>Marketingové stratégie</h3>
+                        <p>Vytvoríme efektívny marketingový plán na zvýšenie vašej online prítomnosti a dosiahnutie vašich obchodných cieľov. Zameriavame sa na výsledky a merateľný úspech.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">B</div>
+                        <h3>Branding</h3>
+                        <p>Vybudujeme silnú značku, ktorá vás odlíši od konkurencie a vytvorí emocionálne prepojenie s vašimi zákazníkmi. Komplexne sa staráme o vizuálny i obsahový aspekt vašej značky.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">S</div>
+                        <h3>SEO optimalizácia</h3>
+                        <p>Zvýšime viditeľnosť vašej webovej stránky vo vyhľadávačoch pomocou komplexnej SEO stratégie. Zahŕňa optimalizáciu kľúčových slov, technickú SEO, tvorbu kvalitného obsahu a linkbuilding.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">3</div>
+                        <h3>3D design</h3>
+                        <p>Pripravíme 3D modely pre tlač aj reklamné účely. Vytvárame vizualizácie produktov, architektonické vizualizácie a 3D grafiku pre rôzne marketingové materiály.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 40px; font-weight: 300; text-align: center;">* Na konfigurovanie a nahranie stránky poskytujeme konzultácie bezplatne</p>
+            </div>
+        </section>
 
-  <script>
-    const canvas = document.getElementById('sequenceCanvas');
-    const context = canvas.getContext('2d');
-    const frameCount = 59;
-    const currentFrame = index => `${String(index).padStart(4, '0')}.png`;
 
-    const images = [];
-    let loadedImages = 0;
-    let imgAspectRatio = 16/9; // Default aspect ratio
+    <section id="team">
+        <div class="container">
+            <h2 class="section-title">Náš tím</h2>
+            <div class="team-content">
+                <div>
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-initial">M</div>
+                            <div class="member-info">
+                                <h3>Maroš Slosiar</h3>
+                                <p>Dizajn a development</p>
+                            </div>
+                        </div>
+                        <p>Maroš má viac ako 10 rokov skúseností v oblasti web dizajnu a vývoja. Špecializuje sa na vytváranie moderných, užívateľsky prívetivých rozhraní s dôrazom na detail a funkčnosť.</p>
+                        <div class="member-contact">0904 674 480</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-initial">N</div>
+                            <div class="member-info">
+                                <h3>Noemi Kuraková</h3>
+                                <p>Marketingová špecialistka a grafička</p>
+                            </div>
+                        </div>
+                        <p>Noemi je kreatívna duša s citom pre detail. Venuje sa grafickému dizajnu a marketingovým stratégiám, ktoré pomáhajú klientom zviditeľniť sa na trhu a osloviť cieľovú skupinu.</p>
+                        <div class="member-contact">0944 927 793</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function preloadImages() {
-      for (let i = 1; i <= frameCount; i++) {
-        const img = new Image();
-        img.src = currentFrame(i);
-        images[i - 1] = img;
-        img.onload = () => {
-          loadedImages++;
-          // Get aspect ratio from the first image
-          if (loadedImages === 1) {
-            imgAspectRatio = img.width / img.height;
-            drawFrame(0);
-          }
-        };
-      }
-    }
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Kontaktujte nás</h2>
+            <p style="margin-bottom: 40px; font-weight: 300;">Máte záujem o spoluprácu? Neváhajte nás kontaktovať!</p>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Meno</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Správa</label>
+                        <textarea id="message" name="message" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Odoslať správu</button>
+                </div>
+                <div class="contact-info">
+                    <p><strong></p>
+                    <p><strong>IČO:</strong> 56986581</p>
+                    <p><strong>Sídlo:</strong> Banská Bystrica, Severná 1408/18</p>
+                    <p><strong>Kontaktné osoby:</strong></p>
+                    <p>Maroš Slosiar: 0904 674 480</p>
+                    <p>Noemi Kuraková: 0944 927 793</p>
+                    <p><strong>Email:</strong> nomaro.online@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function drawFrame(index) {
-      const img = images[index];
-      if (img && img.complete) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">NOMARO</div>
+                    <div class="footer-info">
+                        <p>Maroš Slosiar NOMARO - ONLINE |</p>
+                        <P> IČO: 56986581</P>
+                        <p>Sídlo: Banská Bystrica, Severná 1408/18</p>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <p>Kreatívne štúdio špecializované na web dizajn, grafiku a marketing.</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Nomaro Design Studio. Všetky práva vyhradené.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle theme functionality
+        const themeToggle = document.getElementById('themeToggle');
         
-        // Calculate dimensions to preserve aspect ratio
-        const canvasAspect = canvas.width / canvas.height;
-        let renderWidth, renderHeight, x, y;
-        
-        if (imgAspectRatio > canvasAspect) {
-          // Image is wider than canvas - fit to width
-          renderWidth = canvas.width;
-          renderHeight = canvas.width / imgAspectRatio;
-          x = 0;
-          y = (canvas.height - renderHeight) / 2;
-        } else {
-          // Image is taller than canvas - fit to height
-          renderHeight = canvas.height;
-          renderWidth = canvas.height * imgAspectRatio;
-          x = (canvas.width - renderWidth) / 2;
-          y = 0;
-        }
-        
-        context.drawImage(img, x, y, renderWidth, renderHeight);
-      }
-    }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggle.textContent = 'LIGHT MODE';
+            } else {
+                themeToggle.textContent = 'DARK MODE';
+            }
+        });
 
-    function getScrollFraction() {
-      const scrollTop = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-      return scrollTop / maxScroll;
-    }
-
-    function updateFrame() {
-      const fraction = getScrollFraction();
-      const frameIndex = Math.min(frameCount - 1, Math.floor(fraction * frameCount));
-      drawFrame(frameIndex);
-    }
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      updateFrame();
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-    window.addEventListener('scroll', () => {
-      updateFrame();
-      updateScrollIndicator();
-    });
-    window.addEventListener('load', () => {
-      resizeCanvas();
-      preloadImages();
-      updateFrame();
-      updateScrollIndicator();
-      
-      // Hide info banner after 5 seconds
-      setTimeout(() => {
-        document.querySelector('.info-banner').style.opacity = '0';
-        setTimeout(() => {
-          document.querySelector('.info-banner').style.display = 'none';
-        }, 1000);
-      }, 5000);
-    });
-
-    function updateScrollIndicator() {
-      const items = document.querySelectorAll('.indicator-item');
-      const sections = ['#home', '#about', '#projects', '#placeholder1', '#placeholder2'];
-      let current = 0;
-      sections.forEach((id, index) => {
-        const section = document.querySelector(id);
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= window.innerHeight / 2) {
-          current = index;
-        }
-      });
-      items.forEach((item, index) => {
-        item.querySelector('.scroll-dot').classList.toggle('active', index === current);
-      });
-    }
-
-    document.querySelectorAll('.indicator-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const target = document.querySelector(item.dataset.target);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-    document.getElementById('navHomeLink')?.addEventListener('click', function (e) {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-    
-  </script>>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
